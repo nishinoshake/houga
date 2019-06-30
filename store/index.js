@@ -1,5 +1,7 @@
 import { createClient } from 'contentful'
 
+const PLAYLIST_LENGTH = 30
+
 const client = createClient({
   space: process.env.SPACE_ID,
   accessToken: process.env.ACCESS_TOKEN
@@ -39,9 +41,12 @@ export const mutations = {
     state.order = order
 
     if (order === 'random') {
-      state.selectedMovies = shuffleArray(state.movies)
+      state.selectedMovies = shuffleArray(state.movies).slice(
+        0,
+        PLAYLIST_LENGTH
+      )
     } else {
-      state.selectedMovies = [...state.movies]
+      state.selectedMovies = [...state.movies].slice(0, PLAYLIST_LENGTH)
     }
   },
   unselect(state) {
