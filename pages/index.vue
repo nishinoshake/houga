@@ -82,7 +82,7 @@ export default {
           playerVars: {
             autoplay: 1,
             controls: 2,
-            playlist
+            playlist: playlist.join(',')
           }
         })
       }
