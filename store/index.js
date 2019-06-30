@@ -18,7 +18,7 @@ export const state = () => ({
 })
 
 export const actions = {
-  fetchMovies: async function({ commit }) {
+  nuxtServerInit: async function({ commit }) {
     let param = {
       content_type: 'post',
       order: '-fields.releaseDate'

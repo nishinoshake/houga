@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import IndexLogo from '~/assets/icon/logo.svg'
 
 export default {
@@ -66,11 +66,7 @@ export default {
       }
     }
   },
-  async mounted() {
-    this.fetchMovies()
-  },
   methods: {
-    ...mapActions(['fetchMovies']),
     ...mapMutations(['select', 'unselect']),
     createPlayer(movies) {
       const [firstMovie, ...playlist] = movies
