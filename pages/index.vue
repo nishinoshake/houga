@@ -28,8 +28,10 @@
         </ul>
       </nav>
     </div>
-    <div class="player">
-      <div ref="player" />
+    <div class="frame" ref="frame">
+      <div class="box" ref="box" :style="{ width: boxWidth }">
+        <div ref="player" />
+      </div>
     </div>
   </div>
 </template>
@@ -44,7 +46,8 @@ export default {
   },
   data() {
     return {
-      player: null
+      player: null,
+      boxWidth: '100%'
     }
   },
   computed: {
@@ -66,6 +69,9 @@ export default {
       }
     }
   },
+  mounted() {
+    window.addEventListener('resize', () => this.fit())
+  },
   methods: {
     ...mapMutations(['select', 'unselect']),
     createPlayer(movies) {
@@ -82,6 +88,8 @@ export default {
             playlist
           }
         })
+
+        this.fit()
       }
 
       const tag = document.createElement('script')
@@ -92,6 +100,17 @@ export default {
     },
     loadPlaylist(movies) {
       this.player.loadPlaylist(movies)
+    },
+    fit() {
+      const w = this.$refs.frame.clientWidth
+      const h = this.$refs.frame.clientHeight
+      const ratio = w / h
+
+      if (ratio > 16 / 9) {
+        this.boxWidth = `${Math.floor((h * 16) / 9)}px`
+      } else {
+        this.boxWidth = '100%'
+      }
     }
   }
 }
@@ -122,7 +141,7 @@ export default {
         background-color: transparent;
       }
     }
-    .player {
+    .frame {
       opacity: 1;
       visibility: visible;
       transition: opacity linear 0.2s 0.2s, visibility 0s;
@@ -145,7 +164,8 @@ export default {
     margin-bottom: 2rem;
   }
   svg {
-    width: 20rem;
+    width: 19rem;
+    height: 1.6rem;
     display: block;
   }
   path {
@@ -171,10 +191,10 @@ export default {
 }
 
 .button {
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 0.6rem;
   position: relative;
   z-index: 0;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-family: serif;
   letter-spacing: 0.15em;
   border-bottom: 2px solid $color-black;
@@ -185,26 +205,32 @@ export default {
   }
 }
 
-.player {
+.frame {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
   visibility: hidden;
+  @include center-flex;
   @include max {
     height: calc(100% - 13rem);
   }
   @include min {
     height: calc(100% - 9.5rem);
   }
-  /deep/ iframe {
+}
+.box {
+  position: relative;
+  &:before {
+    content: '';
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
+    display: block;
+    height: 0;
+    padding-top: 56.25%;
+  }
+  /deep/ iframe {
+    @include fit-full;
   }
 }
 </style>

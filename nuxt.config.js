@@ -2,6 +2,9 @@ require('dotenv').config()
 
 export default {
   mode: 'universal',
+  server: {
+    host: '0.0.0.0'
+  },
   head: {
     title: '邦画の予告を、朝まで',
     meta: [
