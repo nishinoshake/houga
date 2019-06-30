@@ -29,9 +29,7 @@
       </nav>
     </div>
     <div class="frame" ref="frame">
-      <div class="box" ref="box" :style="{ width: boxWidth }">
-        <div ref="player" />
-      </div>
+      <div ref="player" />
     </div>
   </div>
 </template>
@@ -46,8 +44,7 @@ export default {
   },
   data() {
     return {
-      player: null,
-      boxWidth: '100%'
+      player: null
     }
   },
   computed: {
@@ -88,8 +85,6 @@ export default {
             playlist
           }
         })
-
-        this.fit()
       }
 
       const tag = document.createElement('script')
@@ -100,17 +95,6 @@ export default {
     },
     loadPlaylist(movies) {
       this.player.loadPlaylist(movies)
-    },
-    fit() {
-      const w = this.$refs.frame.clientWidth
-      const h = this.$refs.frame.clientHeight
-      const ratio = w / h
-
-      if (ratio > 16 / 9) {
-        this.boxWidth = `${Math.floor((h * 16) / 9)}px`
-      } else {
-        this.boxWidth = '100%'
-      }
     }
   }
 }
@@ -218,16 +202,6 @@ export default {
   }
   @include min {
     height: calc(100% - 9.5rem);
-  }
-}
-.box {
-  position: relative;
-  &:before {
-    content: '';
-    width: 100%;
-    display: block;
-    height: 0;
-    padding-top: 56.25%;
   }
   /deep/ iframe {
     @include fit-full;
