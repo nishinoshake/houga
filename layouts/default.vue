@@ -5,9 +5,6 @@
 <style lang="scss">
 html {
   font-size: 12px;
-  line-height: 1.6;
-  letter-spacing: 0.06em;
-  font-family: 'Noto Serif JP', serif;
   @include min {
     font-size: 16px;
   }
@@ -26,6 +23,10 @@ body,
 
 body {
   color: $color-dark;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+  font-family: 'Noto Serif JP', serif;
+  background-color: $color-snow;
 }
 
 button {
@@ -33,13 +34,13 @@ button {
 }
 
 .pc {
-  @include max {
+  @include max($kamakura) {
     display: none;
   }
 }
 
 .sp {
-  @include min {
+  @include min($kamakura + 1px) {
     display: none;
   }
 }

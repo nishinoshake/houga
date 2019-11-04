@@ -3,8 +3,10 @@
     <h2 class="privacy-title">プライバシーポリシー</h2>
     <p class="privacy-text">
       本サイトでは、アクセス状況を把握するためにGoogle
-      Analyticsを利用しています。Google
-      Analyticsは、Cookieを利用して情報の収集を行います。収集している内容や方法については、下記のリンクからご確認いただけます。
+      Analyticsを利用しています。<br class="pc" />Google
+      Analyticsは、Cookieという仕組みを利用して情報の収集を行います。<br
+        class="pc"
+      />収集している内容や方法については、下記のリンクからご確認いただけます。
     </p>
     <ul class="privacy-list">
       <li class="privacy-item">
@@ -39,10 +41,10 @@
 .privacy {
   background-color: $color-darker;
   @include max {
-    padding: 5rem 2rem 5.5rem;
+    padding: 3rem 2rem 4rem;
   }
   @include min {
-    padding: 5rem 3rem 5.5rem;
+    padding: 5rem 3rem 5.4rem;
   }
   &-title {
     margin-bottom: 2rem;
@@ -63,7 +65,7 @@
       font-size: 1.4rem;
     }
     @include min {
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
   }
   &-list {
@@ -80,7 +82,7 @@
         font-size: 1.2rem;
       }
       @include min {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         &:hover {
           span {
             background-position: right center;

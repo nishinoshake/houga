@@ -77,6 +77,9 @@ export default {
   flex-direction: column;
   align-items: center;
   transition: 0.4s linear;
+  @include min($max-width + 50px) {
+    right: calc(100% - #{$max-width} - 40px);
+  }
   &.is-loaded {
     opacity: 1;
   }
@@ -86,10 +89,10 @@ export default {
     position: relative;
     pointer-events: none;
     @include max {
-      margin-bottom: 5rem;
+      margin-bottom: 4rem;
     }
     @include min {
-      margin-bottom: 10rem;
+      margin-bottom: 6rem;
     }
     img {
       @include fit-full;

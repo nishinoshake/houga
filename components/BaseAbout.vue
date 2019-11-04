@@ -4,62 +4,42 @@
       <img src="/img/logo01.svg" alt="邦画の予告を、朝まで" />
     </h2>
     <div class="about-body">
-      <p class="about-text">今日はなんだか邦画が見たい。</p>
+      <p class="about-text">今日はなんだか邦画が観たい。</p>
       <p class="about-text">
         そう思って探し始めたものの、<br
           class="pc"
-        />出てくるのは胸キュンラブストーリーばかりで、<br
+        />出てくるのが胸キュンラブストーリーばかりで、<br
           class="pc"
         />やるせない気持ちになった経験はありませんか？
       </p>
       <p class="about-text">
-        以前は、映画館で予告を観るのが、ひそかな楽しみだったのですが、<br
+        以前は、映画館で予告を観るのがひそかな楽しみだったのですが、<br
           class="pc"
-        />最近は、新しいヒロインや王子様の顔がひたすら流れる時間になりつつあるので、<br
+        />最近は、新しいヒロインや王子様のお披露目会になりつつあるので、<br
           class="pc"
-        />精神的に辛すぎて、予告が終わる頃を見計らって入ることすらあります。
+        />目を閉じて予告が終わるまで待つ、なんてこともあります。
       </p>
       <p class="about-text">
         まったく同じ気持ちの人がどれほどいるかはわかりませんが、<br
           class="pc"
         />邦画が好きで、予告も好きだけど、胸キュンはちょっとな・・・<br
           class="pc"
-        />という方のために作られたのが、このサイトです。
+        />というモヤモヤをきっかけに、このサイトを作りました。
       </p>
       <p class="about-text">
-        このサイトには、実際に観て良かった感じた邦画のみを掲載しています。<br
-          class="pc"
-        />ざっくりとしたニュアンスとしては、食べログの3.6ぐらいです。
+        このサイトにない、好きな邦画がありましたら、<br class="pc" /><a
+          href="mailto:lawson.and.7.11@gmail.com"
+          >メール</a
+        >で教えていただけたら嬉しいです。<br class="pc" /><a
+          href="https://github.com/nishinoshake/houga"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >にソースコードも公開しています。
       </p>
-      <p class="about-text">
-        冒頭からさんざん胸キュン映画を悪く言いましたが、<br
-          class="pc"
-        />たまに怖いもの見たさで挑戦するのが楽しみだったりするので、<br
-          class="pc"
-        />もうちょっと減ってくれたら嬉しいな、ぐらいの気持ちです。<br
-          class="pc"
-        />（最近では、ホットギミックが良かったです）
+      <p class="about-kyun">
+        ※冒頭からさんざん胸キュン映画を悪く言いましたが、たまに怖いもの見たさで挑戦するのが楽しみだったりするので、無きゃ無いで寂しいというのが正直なところ。最近では、ホットギミックが良かったです。
       </p>
-      <p class="about-text">
-        このサイトに載っていない、おもしろい邦画などがありましたら、<br
-          class="pc"
-        />メールで教えていただけたら嬉しいです。
-      </p>
-      <ul class="about-list">
-        <li>
-          メール：<a href="mailto:lawson.and.7.11@gmail.com"
-            >lawson.and.7.11@gmail.com</a
-          >
-        </li>
-        <li>
-          ソースコード：<a
-            href="https://github.com/nishinoshake/houga"
-            target="_blank"
-            rel="noopener"
-            >GitHub</a
-          >
-        </li>
-      </ul>
     </div>
   </section>
 </template>
@@ -68,10 +48,11 @@
 .about {
   display: flex;
   @include max {
-    padding: 5rem 2rem;
+    padding: 3.5rem 2rem;
   }
   @include min {
-    padding: 6rem;
+    max-width: 1200px;
+    padding: 6rem 2rem 6rem 6rem;
   }
   a {
     background-repeat: no-repeat;
@@ -98,12 +79,12 @@
   &-title {
     flex: none;
     @include max {
-      width: 2rem;
+      width: 2.5rem;
       margin-right: 2rem;
     }
     @include min {
-      width: 5rem;
-      margin-right: 6rem;
+      width: 4.4rem;
+      margin-right: 5.8rem;
     }
     img {
       width: 100%;
@@ -122,7 +103,7 @@
       font-size: 1.4rem;
     }
     @include min {
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
     + .about-text {
       margin-top: 1em;
@@ -135,8 +116,16 @@
       font-size: 1.4rem;
     }
     @include min {
-      font-size: 2rem;
+      font-size: 1.4rem;
     }
+  }
+  &-kyun {
+    margin-top: 1em;
+    padding: 1em;
+    font-size: 1.2rem;
+    text-indent: -1em;
+    text-align: justify;
+    color: $color-muted;
   }
 }
 </style>

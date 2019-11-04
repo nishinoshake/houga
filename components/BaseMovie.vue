@@ -28,7 +28,7 @@ export default {
     padding: 3rem 1rem;
   }
   @include min {
-    padding: 3rem 2rem 4rem;
+    padding: 2.5rem 2rem 4rem;
   }
   &-item {
     &:nth-child(n + 2) {
@@ -36,7 +36,7 @@ export default {
         margin-top: 2.5rem;
       }
       @include min {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
       }
     }
   }
@@ -44,7 +44,6 @@ export default {
     color: $color-dark;
     line-height: 1.5;
     text-align: left;
-    // transition: 0.2s linear;
     @include min {
       display: flex;
       align-items: baseline;

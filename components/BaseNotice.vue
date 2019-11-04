@@ -86,13 +86,14 @@ export default {
       font-size: 1.5rem;
     }
     span {
+      padding: 0 0.3rem;
       background-color: rgba($color-yellow, 0.6);
     }
   }
   &-button {
     width: 6em;
     margin: 2rem auto 0;
-    padding: 0.6rem;
+    padding: 0.5rem;
     border: 2px solid $color-dark;
     @include max {
       font-size: 1.2rem;

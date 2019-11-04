@@ -30,3 +30,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.container {
+  max-width: $max-width;
+  background-color: $color-white;
+}
+</style>
