@@ -5,7 +5,10 @@
 <style lang="scss">
 html {
   font-size: 12px;
-  @include min {
+  @include phablet {
+    font-size: 14px;
+  }
+  @include desktop {
     font-size: 16px;
   }
 }
@@ -34,13 +37,13 @@ button {
 }
 
 .pc {
-  @include max($kamakura) {
+  @include max($width-large) {
     display: none;
   }
 }
 
 .sp {
-  @include min($kamakura + 1px) {
+  @include min($width-large + 1px) {
     display: none;
   }
 }

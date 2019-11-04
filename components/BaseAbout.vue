@@ -47,42 +47,19 @@
 <style lang="scss" scoped>
 .about {
   display: flex;
-  @include max {
-    padding: 3.5rem 2rem;
-  }
-  @include min {
-    max-width: 1200px;
-    padding: 6rem 2rem 6rem 6rem;
+  padding: 3.5rem 2rem;
+  @include desktop {
+    max-width: $width-large;
+    padding: 6rem 3rem 6rem 6rem;
   }
   a {
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 100% 100%;
-    transition: background-size 0.6s $easeOutQuart;
-    @include max {
-      background-image: linear-gradient(
-        transparent calc(100% - 1px),
-        currentColor 1px
-      );
-    }
-    @include min {
-      background-image: linear-gradient(
-        transparent calc(100% - 2px),
-        currentColor 2px
-      );
-      &:hover {
-        background-position: right center;
-        background-size: 0 100%;
-      }
-    }
+    @include link($color-link);
   }
   &-title {
+    width: 2.5rem;
+    margin-right: 2rem;
     flex: none;
-    @include max {
-      width: 2.5rem;
-      margin-right: 2rem;
-    }
-    @include min {
+    @include desktop {
       width: 4.4rem;
       margin-right: 5.8rem;
     }
@@ -99,12 +76,7 @@
   &-text {
     line-height: 1.8;
     text-align: justify;
-    @include max {
-      font-size: 1.4rem;
-    }
-    @include min {
-      font-size: 1.6rem;
-    }
+    @include font-m;
     + .about-text {
       margin-top: 1em;
     }
@@ -112,20 +84,15 @@
   &-list {
     margin-top: 1em;
     line-height: 1.8;
-    @include max {
-      font-size: 1.4rem;
-    }
-    @include min {
-      font-size: 1.4rem;
-    }
+    @include font-s;
   }
   &-kyun {
     margin-top: 1em;
     padding: 1em;
-    font-size: 1.2rem;
     text-indent: -1em;
     text-align: justify;
     color: $color-muted;
+    @include font-xs;
   }
 }
 </style>

@@ -24,18 +24,14 @@ export default {
 
 <style lang="scss" scoped>
 .movie {
-  @include max {
-    padding: 3rem 1rem;
-  }
-  @include min {
+  padding: 3rem 1rem;
+  @include desktop {
     padding: 2.5rem 2rem 4rem;
   }
   &-item {
     &:nth-child(n + 2) {
-      @include max {
-        margin-top: 2.5rem;
-      }
-      @include min {
+      margin-top: 2.5rem;
+      @include desktop {
         margin-top: 1rem;
       }
     }
@@ -44,7 +40,7 @@ export default {
     color: $color-dark;
     line-height: 1.5;
     text-align: left;
-    @include min {
+    @include desktop {
       display: flex;
       align-items: baseline;
       &:hover {
@@ -59,24 +55,18 @@ export default {
   &-date {
     padding: 0 1rem 0.1rem;
     font-family: 'Roboto Mono', monospace;
+    @include font-m;
     @include max {
       display: block;
       line-height: 1.2;
-      font-size: 1.4rem;
-    }
-    @include min {
-      font-size: 1.8rem;
     }
   }
   &-title {
     padding: 0 1rem 0.1rem;
     letter-spacing: 0.14em;
+    @include font-l;
     @include max {
       display: block;
-      font-size: 1.8rem;
-    }
-    @include min {
-      font-size: 2.5rem;
     }
   }
 }

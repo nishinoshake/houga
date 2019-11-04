@@ -1,22 +1,76 @@
 require('dotenv').config()
 
+const TITLE = '邦画の予告を、朝まで - Japanese Movie Trailers'
+const DESCRIPTION = 'おもしろそうな邦画の予告をひたすら観たいときに。'
+const IMAGE_URL = 'https://houga.cc/img/og.png'
+
 export default {
   mode: 'universal',
   server: {
     host: '0.0.0.0'
   },
   head: {
-    title: '邦画の予告を、朝まで',
+    title: TITLE,
+    htmlAttrs: {
+      lang: 'ja'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: 'description',
         name: 'description',
-        content: 'おもしろそうな邦画の予告をひたすら観たいときに。'
+        content: DESCRIPTION
+      },
+      {
+        name: 'theme-color',
+        content: '#ffffff'
+      },
+      {
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        property: 'og:site_name',
+        content: TITLE
+      },
+      {
+        property: 'og:url',
+        content: 'https://houga.cc'
+      },
+      {
+        name: 'og:title',
+        content: TITLE
+      },
+      {
+        name: 'og:description',
+        content: DESCRIPTION
+      },
+      {
+        property: 'og:image',
+        content: IMAGE_URL
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        name: 'twitter:title',
+        content: TITLE
+      },
+      {
+        name: 'twitter:description',
+        content: DESCRIPTION
+      },
+      {
+        name: 'twitter:image',
+        content: IMAGE_URL
       }
     ],
     link: [
+      {
+        rel: 'shortcut icon',
+        href: '/img/favicon.ico'
+      },
       {
         rel: 'stylesheet',
         href:
@@ -32,6 +86,7 @@ export default {
   css: ['~/assets/scss/index.scss'],
   modules: [
     '@nuxtjs/dotenv',
+    '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     [
       '@nuxtjs/google-analytics',
@@ -68,5 +123,17 @@ export default {
         }
       })
     }
+  },
+  manifest: {
+    name: '邦画の予告を、朝まで',
+    short_name: '邦画の予告を、朝まで',
+    lang: 'ja',
+    orientation: 'portrait',
+    theme_color: '#ffffff',
+    background_color: '#ffffff',
+    start_url: '/index.html'
+  },
+  workbox: {
+    dev: true
   }
 }

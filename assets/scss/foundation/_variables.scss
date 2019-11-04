@@ -9,8 +9,9 @@ $color-dark: #444;
 $color-snow: #f8f8f8;
 $color-gray: #eee;
 $color-gray-dark: darken(#eee, 10%);
-$color-muted: #888;
+$color-muted: #666;
 $color-yellow: #ffeb3b;
+$color-link: #1976d2;
 $color-white: #fff;
 
 // -----------------------------------------------------
@@ -18,8 +19,11 @@ $color-white: #fff;
 // -----------------------------------------------------
 $mq-max: 956px;
 $mq-min: $mq-max+1;
-$max-width: 1440px;
-$kamakura: 1192px;
+$width-phablet: 576px;
+$width-tablet: 768px;
+$width-desktop: 980px;
+$width-large: 1240px;
+$width-max: 1440px;
 
 // -----------------------------------------------------
 // easing

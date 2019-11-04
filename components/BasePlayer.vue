@@ -218,6 +218,7 @@ export default {
       overflow: hidden;
       &:after {
         content: '';
+        width: 1.6rem;
         height: 100%;
         position: absolute;
         top: 0;
@@ -227,16 +228,14 @@ export default {
           rgba($color-white, 0),
           rgba($color-white, 1)
         );
-        @include max {
-          width: 1.6rem;
-        }
-        @include min {
+        @include desktop {
           width: 2rem;
         }
       }
       &-text {
         line-height: 1;
         display: flex;
+        padding: 0 1.6rem 0.1rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -244,13 +243,9 @@ export default {
         letter-spacing: 0.18em;
         will-change: transform;
         @include fit-full;
-        @include max {
-          padding: 0 1.6rem 0.1rem;
-          font-size: 1.4rem;
-        }
-        @include min {
+        @include font-m;
+        @include desktop {
           padding: 0 2rem 0.1rem;
-          font-size: 1.8rem;
         }
         &-enter-active {
           transition: transform 0.6s $easeOutQuart 0.5s;
@@ -280,7 +275,7 @@ export default {
         height: 100%;
         position: relative;
         background-color: $color-gray;
-        @include min {
+        @include desktop {
           &:hover {
             background-color: $color-gray-dark;
           }

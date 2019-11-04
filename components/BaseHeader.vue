@@ -77,8 +77,8 @@ export default {
   flex-direction: column;
   align-items: center;
   transition: opacity 0.4s linear;
-  @include min($max-width + 42px) {
-    right: calc(100% - #{$max-width} - 40px);
+  @include min($width-max + 42px) {
+    right: calc(100% - #{$width-max} - 40px);
   }
   &.is-loaded {
     opacity: 1;
@@ -86,12 +86,10 @@ export default {
   &-logo {
     width: 8.45vh;
     height: 100vh;
+    margin-bottom: 4rem;
     position: relative;
     pointer-events: none;
-    @include max {
-      margin-bottom: 4rem;
-    }
-    @include min {
+    @include desktop {
       margin-bottom: 6rem;
     }
     img {
@@ -101,15 +99,9 @@ export default {
 }
 .nav {
   &-item {
-    @include max {
-      width: 50%;
-      flex: none;
-    }
     &:nth-child(n + 2) {
-      @include max {
-        margin-top: 3rem;
-      }
-      @include min {
+      margin-top: 3rem;
+      @include desktop {
         margin-top: 2rem;
       }
     }
@@ -117,17 +109,15 @@ export default {
 
   &-button {
     position: relative;
+    padding: 0.5rem 0.4rem 0.8rem 0.7rem;
     z-index: 0;
     line-height: 1.2;
     color: $color-white;
+    font-size: 1.8rem;
     letter-spacing: 0.15em;
     white-space: nowrap;
     background-color: $color-darker;
-    @include max {
-      padding: 0.5rem 0.4rem 0.8rem 0.7rem;
-      font-size: 1.8rem;
-    }
-    @include min {
+    @include desktop {
       padding: 0.3rem 0.2rem 0.6rem 0.5rem;
       font-size: 1.6rem;
       &:hover {

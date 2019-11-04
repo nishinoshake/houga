@@ -10,27 +10,27 @@
     </p>
     <ul class="privacy-list">
       <li class="privacy-item">
-        <a
+        ・<a
           href="https://policies.google.com/technologies/partner-sites?hl=ja"
           target="_blank"
           rel="noopener"
-          >・<span>収集した情報のGoogleによる使用</span></a
+          >収集した情報のGoogleによる使用</a
         >
       </li>
       <li class="privacy-item">
-        <a
+        ・<a
           href="https://policies.google.com/technologies/cookies?hl=ja"
           target="_blank"
           rel="noopener"
-          >・<span>GoogleによるCookieの利用方法</span></a
+          >GoogleによるCookieの利用方法</a
         >
       </li>
       <li class="privacy-item">
-        <a
+        ・<a
           href="https://policies.google.com/technologies/types?hl=ja"
           target="_blank"
           rel="noopener"
-          >・<span>Googleが使用しているCookieの種類</span></a
+          >Googleが使用しているCookieの種類</a
         >
       </li>
     </ul>
@@ -39,76 +39,36 @@
 
 <style lang="scss" scoped>
 .privacy {
+  padding: 3rem 2rem 4rem;
   background-color: $color-darker;
-  @include max {
-    padding: 3rem 2rem 4rem;
-  }
-  @include min {
+  @include desktop {
     padding: 5rem 3rem 5.4rem;
   }
   &-title {
     margin-bottom: 2rem;
     line-height: 1;
     color: $color-white;
-    @include max {
-      font-size: 2rem;
-    }
-    @include min {
-      font-size: 2.5rem;
-    }
+    @include font-l;
   }
   &-text {
     line-height: 1.8;
     text-align: justify;
     color: $color-white;
-    @include max {
-      font-size: 1.4rem;
-    }
-    @include min {
-      font-size: 1.6rem;
-    }
+    @include font-m;
   }
   &-list {
     margin-top: 2rem;
   }
   &-item {
     line-height: 1.6;
+    color: $color-white;
+    @include font-s;
     &:nth-child(n + 2) {
       margin-top: 1rem;
     }
     a {
-      color: $color-white;
-      @include max {
-        font-size: 1.2rem;
-      }
-      @include min {
-        font-size: 1.4rem;
-        &:hover {
-          span {
-            background-position: right center;
-            background-size: 0 100%;
-          }
-        }
-      }
-    }
-    span {
       padding-bottom: 3px;
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 100% 100%;
-      transition: background-size 0.6s $easeOutQuart;
-      @include max {
-        background-image: linear-gradient(
-          transparent calc(100% - 1px),
-          currentColor 1px
-        );
-      }
-      @include min {
-        background-image: linear-gradient(
-          transparent calc(100% - 2px),
-          currentColor 2px
-        );
-      }
+      @include link($color-yellow);
     }
   }
 }

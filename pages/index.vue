@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  max-width: $max-width;
+  max-width: $width-max;
   background-color: $color-white;
 }
 </style>

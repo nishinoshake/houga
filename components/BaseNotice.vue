@@ -47,6 +47,7 @@ export default {
 <style lang="scss" scoped>
 .notice {
   width: 90%;
+  max-width: 26rem;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -63,10 +64,7 @@ export default {
   visibility: hidden;
   transform: translateY(100%) translateY(3rem);
   transition: transform 0.5s $easeInQuart, visibility 0s 0.5s;
-  @include max {
-    max-width: 26rem;
-  }
-  @include min {
+  @include desktop {
     max-width: 36rem;
   }
   &.is-active {
@@ -79,12 +77,7 @@ export default {
     letter-spacing: 0.08em;
     text-align: center;
     white-space: nowrap;
-    @include max {
-      font-size: 1.2rem;
-    }
-    @include min {
-      font-size: 1.5rem;
-    }
+    @include font-s;
     span {
       padding: 0 0.3rem;
       background-color: rgba($color-yellow, 0.6);
@@ -96,11 +89,8 @@ export default {
     padding: 0.5rem;
     color: $color-white;
     background-color: $color-darker;
-    @include max {
-      font-size: 1.2rem;
-    }
-    @include min {
-      font-size: 1.5rem;
+    @include font-s;
+    @include desktop {
       &:hover {
         background-color: $color-black;
       }
