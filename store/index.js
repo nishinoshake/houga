@@ -1,6 +1,6 @@
 import { createClient } from 'contentful'
 
-const PLAYLIST_LENGTH = 30
+const PLAYLIST_LENGTH = 50
 
 const client = createClient({
   space: process.env.SPACE_ID,
@@ -15,6 +15,8 @@ const shuffleArray = arr =>
 
 export const state = () => ({
   order: null,
+  currentIndex: null,
+  previousIndex: null,
   movies: [],
   selectedMovies: []
 })
@@ -23,13 +25,31 @@ export const actions = {
   nuxtServerInit: async function({ commit }) {
     let param = {
       content_type: 'post',
-      order: '-fields.releaseDate'
+      order: '-fields.releaseDate',
+      limit: 1000
     }
 
     const { items } = await client.getEntries(param)
-    const movies = items.map(item => item.fields.trailerId)
+    const movies = items.map(item => ({
+      id: item.sys.id,
+      title: item.fields.title,
+      releaseDate: item.fields.releaseDate.replace(/-/g, '.').slice(2),
+      trailerId: item.fields.trailerId
+    }))
 
     commit('recieveMovies', { movies })
+  },
+  toggle({ state, commit }, { order, id = null } = {}) {
+    if (state.order !== order) {
+      commit('select', { order, id })
+      return
+    }
+
+    if (state.selectedMovies.length) {
+      commit('unselect')
+    } else {
+      commit('select', { order, id })
+    }
   }
 }
 
@@ -37,8 +57,9 @@ export const mutations = {
   recieveMovies(state, { movies }) {
     state.movies = movies
   },
-  select(state, { order }) {
+  select(state, { order, index = 0 } = {}) {
     state.order = order
+    state.currentIndex = 0
 
     if (order === 'random') {
       state.selectedMovies = shuffleArray(state.movies).slice(
@@ -46,7 +67,7 @@ export const mutations = {
         PLAYLIST_LENGTH
       )
     } else {
-      state.selectedMovies = [...state.movies].slice(0, PLAYLIST_LENGTH)
+      state.selectedMovies = [...state.movies].slice(index, index + PLAYLIST_LENGTH)
     }
   },
   unselect(state) {
@@ -56,5 +77,45 @@ export const mutations = {
     if (state.selectedMovies.length) {
       state.selectedMovies = []
     }
+  },
+  setCurrentIndex(state, { index }) {
+    state.currentIndex = index
+  },
+  setPreviousIndex(state, { index }) {
+    state.previousIndex = index
+  }
+}
+
+export const getters = {
+  isPlaying(state) {
+    return state.order !== null
+  },
+  currentMovie(state) {
+    if (state.selectedMovies.length && state.currentIndex !== null) {
+      return state.selectedMovies[state.currentIndex]
+    }
+
+    return null
+  },
+  playingTitle(state, getters) {
+    if (getters.currentMovie) {
+      return getters.currentMovie.title
+    }
+
+    return ''
+  },
+  lastIndex(state) {
+    if (state.selectedMovies.length) {
+      return state.selectedMovies.length - 1
+    }
+
+    return 0
+  },
+  selectedTrailerIds(state) {
+    if (state.selectedMovies) {
+      return state.selectedMovies.map(movie => movie.trailerId)
+    }
+
+    return []
   }
 }

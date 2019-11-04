@@ -4,7 +4,12 @@
 // color
 // -----------------------------------------------------
 $color-black: #000;
-$color-snow: #fafafa;
+$color-darker: #222;
+$color-dark: #444;
+$color-snow: #f8f8f8;
+$color-gray: #eee;
+$color-gray-dark: darken(#eee, 10%);
+$color-yellow: #ffeb3b;
 $color-white: #fff;
 
 // -----------------------------------------------------

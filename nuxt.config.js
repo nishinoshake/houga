@@ -15,6 +15,13 @@ export default {
         name: 'description',
         content: 'おもしろそうな邦画の予告をひたすら観たいときに。'
       }
+    ],
+    link: [
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Noto+Serif+JP:200|Roboto+Mono:300&display=swap&subset=japanese'
+      }
     ]
   },
   env: {
@@ -23,7 +30,16 @@ export default {
   },
   loading: false,
   css: ['~/assets/scss/index.scss'],
-  modules: ['@nuxtjs/dotenv', '@nuxtjs/style-resources'],
+  modules: [
+    '@nuxtjs/dotenv',
+    '@nuxtjs/style-resources',
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-53153991-9'
+      }
+    ]
+  ],
   styleResources: {
     scss: [
       '~/assets/scss/foundation/_variables.scss',
