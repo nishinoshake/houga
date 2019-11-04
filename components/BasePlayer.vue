@@ -253,10 +253,10 @@ export default {
           font-size: 1.8rem;
         }
         &-enter-active {
-          transition: transform 0.8s $easeOutQuart 0.6s;
+          transition: transform 0.6s $easeOutQuart 0.5s;
         }
         &-leave-active {
-          transition: transform 0.8s $easeInQuart;
+          transition: transform 0.6s $easeInQuart;
         }
         &-enter {
           transform: translate3d(0, 100%, 0);

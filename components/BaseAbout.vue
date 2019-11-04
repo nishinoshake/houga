@@ -27,18 +27,18 @@
         />というモヤモヤをきっかけに、このサイトを作りました。
       </p>
       <p class="about-text">
-        このサイトにない、好きな邦画がありましたら、<br class="pc" /><a
+        このサイトにない、おすすめの邦画などがありましたら、<br class="pc" /><a
           href="mailto:lawson.and.7.11@gmail.com"
           >メール</a
-        >で教えていただけたら嬉しいです。<br class="pc" /><a
-          href="https://github.com/nishinoshake/houga"
+        >でご連絡いただくか、プログラミングに明るいかたは、<br class="pc" /><a
+          href="https://github.com/nishinoshake/houga/issues/1"
           target="_blank"
           rel="noopener"
-          >GitHub</a
-        >にソースコードも公開しています。
+          >GitHubのイシュー</a
+        >に追加していただけたら嬉しいです。
       </p>
       <p class="about-kyun">
-        ※冒頭からさんざん胸キュン映画を悪く言いましたが、たまに怖いもの見たさで挑戦するのが楽しみだったりするので、無きゃ無いで寂しいというのが正直なところ。最近では、ホットギミックが良かったです。
+        ※冒頭からさんざん胸キュン映画を悪く言いましたが、たまに怖いもの見たさで挑戦するのが楽しみだったりするので、無きゃ無いで寂しい。最近では、ホットギミックが良かったので、時間と心に余裕があるかたはぜひ。
       </p>
     </div>
   </section>

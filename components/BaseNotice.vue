@@ -94,15 +94,15 @@ export default {
     width: 6em;
     margin: 2rem auto 0;
     padding: 0.5rem;
-    border: 2px solid $color-dark;
+    color: $color-white;
+    background-color: $color-darker;
     @include max {
       font-size: 1.2rem;
     }
     @include min {
       font-size: 1.5rem;
       &:hover {
-        background-color: $color-dark;
-        color: $color-white;
+        background-color: $color-black;
       }
     }
   }
