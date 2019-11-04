@@ -1,5 +1,9 @@
 <template>
-  <div class="player" :class="{ 'is-active': isPlaying }" ref="player">
+  <div
+    class="player"
+    :class="{ 'is-active': isPlaying && canPlay }"
+    ref="player"
+  >
     <div class="player-frame" ref="frame">
       <div ref="playerYoutube" />
     </div>
@@ -49,6 +53,8 @@ export default {
   data() {
     return {
       player: null,
+      canPlay: false,
+      isVisible: false,
       intervalId: null
     }
   },
@@ -57,37 +63,8 @@ export default {
     ...mapGetters(['selectedTrailerIds', 'isPlaying', 'currentMovie'])
   },
   watch: {
-    isPlaying(newVal) {
-      if (newVal) {
-        disableBodyScroll(this.$refs.player)
-
-        this.intervalId = setInterval(() => {
-          if (this.player && this.player.getPlaylistIndex) {
-            const index = this.player.getPlaylistIndex()
-
-            if (index !== this.currentIndex) {
-              this.setPreviousIndex({ index })
-              this.setCurrentIndex({ index })
-            }
-          }
-        }, 200)
-      } else {
-        enableBodyScroll(this.$refs.player)
-
-        clearInterval(this.intervalId)
-        this.player.stopVideo()
-      }
-    },
-    selectedTrailerIds(trailerIds) {
-      if (trailerIds.length) {
-        this.pageY = window.pageYOffset
-
-        if (this.player) {
-          this.loadPlaylist(trailerIds, this.currentIndex)
-        } else {
-          alert('プレイヤーの読み込みが終わるまでお待ちください！')
-        }
-      }
+    isPlaying(val) {
+      val ? this.play() : this.stop()
     }
   },
   mounted() {
@@ -98,7 +75,8 @@ export default {
       'select',
       'unselect',
       'setCurrentIndex',
-      'setPreviousIndex'
+      'setPreviousIndex',
+      'setErrorMessage'
     ]),
     createPlayer(trailerId) {
       window.onYouTubeIframeAPIReady = () => {
@@ -111,6 +89,9 @@ export default {
             playsinline: 1
           },
           events: {
+            onReady: () => {
+              this.canPlay = true
+            },
             onStateChange: ({ data }) => {
               switch (data) {
                 case YT.PlayerState.ENDED:
@@ -143,9 +124,40 @@ export default {
     loadPlaylist(movies, index) {
       this.player.loadPlaylist(movies, index)
     },
-    playMovie() {
-      if (this.isPlaying && this.player && this.player.playVideoAt) {
-        this.player.playVideoAt(this.currentIndex)
+    play() {
+      if (this.canPlay) {
+        this.loadPlaylist(this.selectedTrailerIds, this.currentIndex)
+      } else {
+        this.unselect()
+        this.setErrorMessage({
+          message:
+            'まだ再生の準備ができていません...<br />もう少し時間を置いてから、<br />一度クリックしてください。'
+        })
+        return
+      }
+
+      disableBodyScroll(this.$refs.player)
+
+      this.intervalId = setInterval(() => {
+        if (this.player && this.player.getPlaylistIndex) {
+          const index = this.player.getPlaylistIndex()
+
+          if (index !== this.currentIndex) {
+            this.setPreviousIndex({ index })
+            this.setCurrentIndex({ index })
+          }
+        }
+      }, 200)
+    },
+    stop() {
+      enableBodyScroll(this.$refs.player)
+
+      if (this.intervalId) {
+        clearInterval(this.intervalId)
+      }
+
+      if (this.canPlay) {
+        this.player.stopVideo()
       }
     },
     next() {

@@ -76,7 +76,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: opacity 0.4s linear;
+  transition: opacity 0.3s linear;
   @include min($width-max + 42px) {
     right: calc(100% - #{$width-max} - 40px);
   }

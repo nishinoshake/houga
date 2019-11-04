@@ -18,7 +18,8 @@ export const state = () => ({
   currentIndex: null,
   previousIndex: null,
   movies: [],
-  selectedMovies: []
+  selectedMovies: [],
+  errorMessage: ''
 })
 
 export const actions = {
@@ -67,7 +68,10 @@ export const mutations = {
         PLAYLIST_LENGTH
       )
     } else {
-      state.selectedMovies = [...state.movies].slice(index, index + PLAYLIST_LENGTH)
+      state.selectedMovies = [...state.movies].slice(
+        index,
+        index + PLAYLIST_LENGTH
+      )
     }
   },
   unselect(state) {
@@ -83,12 +87,18 @@ export const mutations = {
   },
   setPreviousIndex(state, { index }) {
     state.previousIndex = index
+  },
+  setErrorMessage(state, { message }) {
+    state.errorMessage = message
+  },
+  clearErrorMessage(state) {
+    state.errorMessage = ''
   }
 }
 
 export const getters = {
-  isPlaying(state) {
-    return state.order !== null
+  isPlaying(state, getters) {
+    return state.order !== null && getters.selectedTrailerIds.length
   },
   currentMovie(state) {
     if (state.selectedMovies.length && state.currentIndex !== null) {

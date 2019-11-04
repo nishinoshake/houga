@@ -8,6 +8,7 @@
     </main>
     <BasePlayer />
     <BaseNotice />
+    <BaseError />
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import BasePrivacy from '@/components/BasePrivacy'
 import BaseAbout from '@/components/BaseAbout'
 import BasePlayer from '@/components/BasePlayer'
 import BaseNotice from '@/components/BaseNotice'
+import BaseError from '@/components/BaseError'
 
 export default {
   components: {
@@ -26,7 +28,8 @@ export default {
     BasePrivacy,
     BaseAbout,
     BasePlayer,
-    BaseNotice
+    BaseNotice,
+    BaseError
   }
 }
 </script>

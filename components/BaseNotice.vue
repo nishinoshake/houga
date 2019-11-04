@@ -1,16 +1,15 @@
 <template>
-  <section class="notice" :class="{ 'is-active': isActive }">
-    <p class="notice-text">
+  <BaseAlert :is-active="isActive" :handle-close="hide">
+    <p class="alert-text">
       映画のタイトルをクリックすると、<br /><span>予告が再生</span
       >されますので、<br />音量に注意してください！
     </p>
-
-    <button class="notice-button" @click="hide">OK</button>
-  </section>
+  </BaseAlert>
 </template>
 
 <script>
 import Cookies from 'js-cookie'
+import BaseAlert from '@/components/BaseAlert'
 
 const COOKIE_VISIT_KEY = 'is_visited'
 const COOKIE_VISIT_VALUE = 1
@@ -18,6 +17,9 @@ const COOKIE_EXPIRES = 365
 const MODAL_DELAY = 1200
 
 export default {
+  components: {
+    BaseAlert
+  },
   data() {
     return {
       isActive: false
