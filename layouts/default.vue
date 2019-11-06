@@ -2,6 +2,16 @@
   <nuxt />
 </template>
 
+<script>
+export default {
+  beforeCreate() {
+    if (this.$route.path !== '/') {
+      this.$router.push('/')
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 html {
   font-size: 12px;

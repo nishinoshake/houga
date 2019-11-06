@@ -124,9 +124,6 @@ export default {
       })
     }
   },
-  router: {
-    middleware: 'redirect'
-  },
   manifest: {
     name: '邦画の予告を、朝まで',
     short_name: '邦画の予告を、朝まで',
