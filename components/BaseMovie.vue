@@ -32,7 +32,7 @@ export default {
     &:nth-child(n + 2) {
       margin-top: 2.5rem;
       @include desktop {
-        margin-top: 1rem;
+        margin-top: 1.3rem;
       }
     }
   }

@@ -109,17 +109,17 @@ export default {
 
   &-button {
     position: relative;
-    padding: 0.5rem 0.4rem 0.8rem 0.7rem;
+    padding: 0.6rem 0.5rem 0.9rem 0.8rem;
     z-index: 0;
     line-height: 1.2;
     color: $color-white;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     letter-spacing: 0.15em;
     white-space: nowrap;
     background-color: $color-darker;
     @include desktop {
-      padding: 0.3rem 0.2rem 0.6rem 0.5rem;
-      font-size: 1.6rem;
+      padding: 0.6rem 0.5rem 0.9rem 0.8rem;
+      font-size: 1.4rem;
       &:hover {
         background-color: $color-black;
       }
