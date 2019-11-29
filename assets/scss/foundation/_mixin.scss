@@ -130,9 +130,9 @@
 }
 
 @mixin font-s {
-  font-size: 1rem;
+  font-size: 1.1rem;
   @include tablet {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   @include desktop {
     font-size: 1.3rem;
@@ -140,7 +140,7 @@
 }
 
 @mixin font-m {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   @include tablet {
     font-size: 1.4rem;
   }
