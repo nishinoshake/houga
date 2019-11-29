@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const TITLE = '邦画の予告を、朝まで - Japanese Movie Trailers'
+const TITLE = '邦画の予告を、朝まで'
 const DESCRIPTION = 'おもしろそうな邦画の予告をひたすら観たいときに。'
 const IMAGE_URL = 'https://houga.cc/img/og.png'
 
