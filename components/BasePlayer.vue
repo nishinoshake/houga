@@ -297,8 +297,8 @@ export default {
       &-next {
         &:before {
           content: '';
-          width: 40%;
-          height: 40%;
+          width: 30%;
+          height: 30%;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -307,16 +307,16 @@ export default {
         }
       }
       &-prev:before {
-        transform: translate(-25%, -50%) rotate(-135deg);
+        transform: translate(-17%, -50%) rotate(-135deg);
       }
       &-next:before {
-        transform: translate(-75%, -50%) rotate(45deg);
+        transform: translate(-77%, -50%) rotate(45deg);
       }
       &-close {
         &:before,
         &:after {
           content: '';
-          width: 60%;
+          width: 50%;
           height: 1px;
           position: absolute;
           top: 50%;
