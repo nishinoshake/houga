@@ -6,7 +6,7 @@
       Analyticsを利用しています。<br class="pc" />Google
       Analyticsは、Cookieという仕組みを利用して情報の収集を行います。<br
         class="pc"
-      />収集している内容や方法については、下記のリンクからご確認いただけます。
+      />収集している内容や方法については、下記のリンクからご確認ください。
     </p>
     <ul class="privacy-list">
       <li class="privacy-item">
