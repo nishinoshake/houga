@@ -24,9 +24,10 @@ export default {
 
 <style lang="scss" scoped>
 .movie {
-  padding: 3rem 1rem;
+  flex-grow: 1;
+  padding: 3rem 0 0 1rem;
   @include desktop {
-    padding: 2.5rem 2rem 4rem;
+    padding: 2.5rem 2rem 0;
   }
   &-item {
     &:nth-child(n + 2) {

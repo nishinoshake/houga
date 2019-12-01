@@ -2,7 +2,7 @@
   <header class="header" :class="{ 'is-loaded': isLoaded }">
     <h1
       class="header-logo"
-      :style="{ height: logoHeight ? `${logoHeight}px` : null }"
+      :style="{ width: logoWidth ? `${logoWidth}px` : null }"
     >
       <img src="/img/logo01.svg" alt="邦画の予告を、朝まで" />
     </h1>
@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       isLoaded: false,
-      logoHeight: null
+      logoWidth: null
     }
   },
   computed: {
@@ -53,7 +53,7 @@ export default {
     const isIOS = ua.indexOf('iPhone') >= 0 || ua.indexOf('iPad') >= 0
 
     if (isIOS) {
-      this.logoHeight = window.innerHeight
+      this.logoWidth = window.innerHeight * 0.084558824
     }
 
     setTimeout(() => {
@@ -68,42 +68,45 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
   opacity: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: opacity 0.3s linear;
   @include min($width-max + 42px) {
-    right: calc(100% - #{$width-max} - 40px);
+    transform: translateX(50%);
   }
   &.is-loaded {
     opacity: 1;
   }
   &-logo {
     width: 8.45vh;
-    height: 100vh;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     position: relative;
     pointer-events: none;
-    @include desktop {
-      margin-bottom: 6rem;
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 1183.43%;
     }
     img {
-      @include fit-full;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      object-fit: cover;
     }
   }
 }
 .nav {
+  position: sticky;
+  top: 0;
+  right: 0;
+  padding-top: 1.5rem;
   &-item {
     &:nth-child(n + 2) {
-      margin-top: 3rem;
-      @include desktop {
-        margin-top: 2rem;
-      }
+      margin-top: 1.5rem;
     }
   }
 

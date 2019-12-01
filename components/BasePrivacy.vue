@@ -10,27 +10,35 @@
     </p>
     <ul class="privacy-list">
       <li class="privacy-item">
-        ・<a
+        <a
           href="https://policies.google.com/technologies/partner-sites?hl=ja"
           target="_blank"
           rel="noopener"
-          >収集した情報のGoogleによる使用</a
+          >収集した情報の<span class="blue">G</span><span class="red">o</span
+          ><span class="yellow">o</span><span class="blue">g</span
+          ><span class="green">l</span><span class="red">e</span>による使用</a
         >
       </li>
       <li class="privacy-item">
-        ・<a
+        <a
           href="https://policies.google.com/technologies/cookies?hl=ja"
           target="_blank"
           rel="noopener"
-          >GoogleによるCookieの利用方法</a
+          ><span class="blue">G</span><span class="red">o</span
+          ><span class="yellow">o</span><span class="blue">g</span
+          ><span class="green">l</span
+          ><span class="red">e</span>によるCookieの利用方法</a
         >
       </li>
       <li class="privacy-item">
-        ・<a
+        <a
           href="https://policies.google.com/technologies/types?hl=ja"
           target="_blank"
           rel="noopener"
-          >Googleが使用しているCookieの種類</a
+          ><span class="blue">G</span><span class="red">o</span
+          ><span class="yellow">o</span><span class="blue">g</span
+          ><span class="green">l</span
+          ><span class="red">e</span>が使用しているCookieの種類</a
         >
       </li>
     </ul>
@@ -68,7 +76,23 @@
     }
     a {
       padding-bottom: 3px;
-      @include link($color-yellow);
+      @include link($color-gray-dark);
+      @include min {
+        &:hover {
+          .blue {
+            color: $color-g-blue;
+          }
+          .red {
+            color: $color-g-red;
+          }
+          .yellow {
+            color: $color-g-yellow;
+          }
+          .green {
+            color: $color-g-green;
+          }
+        }
+      }
     }
   }
 }

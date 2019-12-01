@@ -1,11 +1,13 @@
 <template>
   <div class="container">
-    <BaseHeader />
-    <main class="main">
+    <div class="main">
       <BaseMovie />
+      <BaseHeader />
+    </div>
+    <div class="sub">
       <BasePrivacy />
       <BaseAbout />
-    </main>
+    </div>
     <BasePlayer />
     <BaseNotice />
     <BaseError />
@@ -38,5 +40,13 @@ export default {
 .container {
   max-width: $width-max;
   background-color: $color-white;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+  @include desktop {
+    padding-bottom: 4rem;
+  }
 }
 </style>
