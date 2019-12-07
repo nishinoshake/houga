@@ -84,6 +84,7 @@ export default {
   },
   loading: false,
   css: ['~/assets/scss/index.scss'],
+  plugins: [{ src: '@/plugins/what-input' }],
   modules: [
     '@nuxtjs/dotenv',
     '@nuxtjs/pwa',

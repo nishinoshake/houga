@@ -320,7 +320,7 @@ export default {
         height: 100%;
         position: relative;
         background-color: $color-gray;
-        &:focus {
+        @include focus-visible {
           background-color: $color-gray-dark;
         }
         @include desktop {

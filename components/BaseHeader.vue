@@ -120,7 +120,7 @@ export default {
     letter-spacing: 0.15em;
     white-space: nowrap;
     background-color: $color-darker;
-    &:focus {
+    @include focus-visible {
       background-color: $color-black;
     }
     @include desktop {

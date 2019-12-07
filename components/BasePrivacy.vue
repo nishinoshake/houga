@@ -77,7 +77,7 @@
     a {
       padding-bottom: 3px;
       @include link($color-gray-dark);
-      &:focus {
+      @include focus-visible {
         .blue {
           color: $color-g-blue;
         }

@@ -42,7 +42,7 @@ export default {
     color: $color-dark;
     line-height: 1.5;
     text-align: left;
-    &:focus {
+    @include focus-visible {
       .movie-title {
         background-color: $color-black;
       }
