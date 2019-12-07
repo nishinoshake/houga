@@ -239,7 +239,7 @@ export default {
     afterEnterTitle(el) {
       if (!this.isTitleEntered && this.previousActiveElement) {
         this.isTitleEntered = true
-        el.focus()
+        el.querySelector('a').focus()
       }
     }
   }
