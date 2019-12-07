@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="main">
-      <BaseMovie />
       <BaseHeader />
+      <BaseMovie />
     </div>
     <div class="sub">
       <BasePrivacy />
@@ -43,6 +43,7 @@ export default {
 }
 .main {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   padding-bottom: 3rem;
   @include desktop {

@@ -120,6 +120,9 @@ export default {
     letter-spacing: 0.15em;
     white-space: nowrap;
     background-color: $color-darker;
+    &:focus {
+      background-color: $color-black;
+    }
     @include desktop {
       padding: 0.6rem 0.5rem 0.9rem 0.8rem;
       font-size: 1.4rem;

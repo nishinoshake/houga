@@ -42,6 +42,15 @@ export default {
     color: $color-dark;
     line-height: 1.5;
     text-align: left;
+    &:focus {
+      .movie-title {
+        background-color: $color-black;
+      }
+      .movie-button-inside {
+        background-color: $color-darker;
+        color: $color-white;
+      }
+    }
     @include desktop {
       width: 100%;
       display: flex;
@@ -70,7 +79,7 @@ export default {
     font-family: 'Roboto Mono', monospace;
     @include font-m;
     @include max {
-      display: block;
+      display: inline-block;
       line-height: 1.2;
     }
   }

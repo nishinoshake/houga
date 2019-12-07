@@ -77,6 +77,20 @@
     a {
       padding-bottom: 3px;
       @include link($color-gray-dark);
+      &:focus {
+        .blue {
+          color: $color-g-blue;
+        }
+        .red {
+          color: $color-g-red;
+        }
+        .yellow {
+          color: $color-g-yellow;
+        }
+        .green {
+          color: $color-g-green;
+        }
+      }
       @include min {
         &:hover {
           .blue {

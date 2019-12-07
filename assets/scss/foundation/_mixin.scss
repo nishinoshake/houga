@@ -101,6 +101,9 @@
   z-index: 0;
   border-top: 1px solid transparent;
   border-bottom: 1px solid currentColor;
+  &:focus {
+    color: $color;
+  }
   @include desktop {
     &:hover {
       color: $color;

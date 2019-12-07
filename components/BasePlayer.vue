@@ -64,7 +64,15 @@ export default {
   },
   watch: {
     isPlaying(val) {
-      val ? this.play() : this.stop()
+      if (val) {
+        this.play()
+
+        document.addEventListener('keydown', this.handleKeydown)
+      } else {
+        this.stop()
+
+        document.removeEventListener('keydown', this.handleKeydown)
+      }
     }
   },
   mounted() {
@@ -160,6 +168,16 @@ export default {
         this.player.stopVideo()
       }
     },
+    toggle() {
+      switch (this.player.getPlayerState()) {
+        case YT.PlayerState.PLAYING: {
+          return this.player.pauseVideo()
+        }
+        case YT.PlayerState.PAUSED: {
+          return this.player.playVideo()
+        }
+      }
+    },
     next() {
       if (this.isPlaying && this.player && this.player.nextVideo) {
         this.player.nextVideo()
@@ -168,6 +186,21 @@ export default {
     prev() {
       if (this.isPlaying && this.player && this.player.previousVideo) {
         this.player.previousVideo()
+      }
+    },
+    handleKeydown({ key }) {
+      switch (key) {
+        case 'ArrowLeft': {
+          return this.prev()
+        }
+        case 'ArrowRight': {
+          return this.next()
+        }
+        case 'Backspace':
+        case 'Delete':
+        case 'Escape': {
+          return this.unselect()
+        }
       }
     }
   }
@@ -287,6 +320,9 @@ export default {
         height: 100%;
         position: relative;
         background-color: $color-gray;
+        &:focus {
+          background-color: $color-gray-dark;
+        }
         @include desktop {
           &:hover {
             background-color: $color-gray-dark;

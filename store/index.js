@@ -98,7 +98,7 @@ export const mutations = {
 
 export const getters = {
   isPlaying(state, getters) {
-    return state.order !== null && getters.selectedTrailerIds.length
+    return !!(state.order !== null && getters.selectedTrailerIds.length)
   },
   currentMovie(state) {
     if (state.selectedMovies.length && state.currentIndex !== null) {
