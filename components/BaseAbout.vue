@@ -13,18 +13,14 @@
         />気になる映画になかなか出会えない。
       </p>
       <p class="about-text">
-        以前は、映画館で予告を観るのがひそかな楽しみだったのですが、<br
+        映画館へ行っても、次はこの映画が観たい！と思える予告が少なく、<br
           class="pc"
-        />ここ何年かは、次はこの映画を観よう！と思える予告が少なく、<br
-          class="pc"
-        />はやく本編が始まらないかなーと思ってしまうこともあります。
+        />はやく映画泥棒が来ないかなーと思ってしまうこともしばしば。
       </p>
       <p class="about-text">
         同じ気持ちの人が、どれほどいるかはわかりませんが、<br
           class="pc"
-        />邦画に絞って、本編が気になる予告を集めました。<br
-          class="pc"
-        />（なかには、面白かった胸キュンものもあります）
+        />思わず本編を観たくなる、おもしろい邦画の予告を集めました。
       </p>
       <p class="about-text">
         このサイトにない、おすすめの邦画などがありましたら、<br class="pc" /><a
@@ -36,6 +32,16 @@
           rel="noopener"
           >GitHubのイシュー</a
         >に追加していただけたら嬉しいです。
+      </p>
+      <p class="about-text">
+        また、<a
+          href="https://not-far-from-home.cc/"
+          target="_blank"
+          rel="noopener"
+          >映画館の近くに住みたい人のためのサイト</a
+        >もやっているので、<br
+          class="pc"
+        />引越しを検討中の方や、近くに映画館が少なくて不満な方はぜひ。
       </p>
     </div>
   </section>
@@ -57,7 +63,7 @@
     margin-right: 2rem;
     flex: none;
     @include desktop {
-      width: 3.66rem;
+      width: 3.74rem;
       margin-right: 5.8rem;
     }
     img {
@@ -68,7 +74,7 @@
   &-body {
     min-width: 0;
     flex-grow: 1;
-    margin-top: -0.3rem;
+    margin-top: -0.6rem;
   }
   &-text {
     line-height: 1.8;
@@ -82,14 +88,6 @@
     margin-top: 1em;
     line-height: 1.8;
     @include font-s;
-  }
-  &-kyun {
-    margin-top: 1em;
-    padding: 1em;
-    text-indent: -1em;
-    text-align: justify;
-    color: $color-muted;
-    @include font-xs;
   }
 }
 </style>

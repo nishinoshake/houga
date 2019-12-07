@@ -2,8 +2,10 @@
   <ul class="movie">
     <li v-for="(movie, index) in movies" :key="movie.id" class="movie-item">
       <button class="movie-button" @click="select({ order: 'desc', index })">
-        <span class="movie-date">{{ movie.releaseDate }}</span>
-        <span class="movie-title">{{ movie.title }}</span>
+        <span class="movie-button-inside">
+          <span class="movie-date">{{ movie.releaseDate }}</span>
+          <span class="movie-title">{{ movie.title }}</span>
+        </span>
       </button>
     </li>
   </ul>
@@ -27,13 +29,12 @@ export default {
   flex-grow: 1;
   padding: 3rem 0 0 1rem;
   @include desktop {
-    padding: 2.5rem 2rem 0;
+    padding: 2.2rem 2rem 0;
   }
   &-item {
     &:nth-child(n + 2) {
-      margin-top: 2.5rem;
-      @include desktop {
-        margin-top: 1.3rem;
+      @include max {
+        margin-top: 2.5rem;
       }
     }
   }
@@ -42,14 +43,25 @@ export default {
     line-height: 1.5;
     text-align: left;
     @include desktop {
+      width: 100%;
       display: flex;
       align-items: baseline;
+      padding: 0.4rem 0;
       &:hover {
-        background-color: $color-darker;
-        color: $color-white;
         .movie-title {
           background-color: $color-black;
         }
+        .movie-button-inside {
+          background-color: $color-darker;
+          color: $color-white;
+        }
+      }
+    }
+    &-inside {
+      display: block;
+      @include desktop {
+        display: flex;
+        align-items: baseline;
       }
     }
   }
@@ -63,11 +75,14 @@ export default {
     }
   }
   &-title {
-    padding: 0 1rem 0.1rem;
+    padding: 0rem 1rem 0.1rem;
     letter-spacing: 0.14em;
     @include font-l;
     @include max {
       display: block;
+    }
+    @include desktop {
+      padding: 0.3rem 1rem 0.4rem;
     }
   }
 }
