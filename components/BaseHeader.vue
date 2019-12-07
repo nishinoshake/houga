@@ -72,7 +72,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear, transform 0.36s $easeOutQuart;
+  @include min($width-max + 60px) {
+    transform: translateX(50%);
+  }
   &.is-loaded {
     opacity: 1;
   }
