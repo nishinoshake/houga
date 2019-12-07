@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <BaseNotice />
+    <BaseError />
     <div class="main">
       <BaseHeader />
       <BaseMovie />
@@ -9,8 +11,6 @@
       <BaseAbout />
     </div>
     <BasePlayer />
-    <BaseNotice />
-    <BaseError />
   </div>
 </template>
 

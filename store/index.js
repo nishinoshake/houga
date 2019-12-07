@@ -14,6 +14,8 @@ const shuffleArray = arr =>
     .map(a => a[1])
 
 export const state = () => ({
+  isAgreed: false,
+  pleaseAgree: false,
   order: null,
   currentIndex: null,
   previousIndex: null,
@@ -55,10 +57,24 @@ export const actions = {
 }
 
 export const mutations = {
+  agree(state) {
+    state.isAgreed = true
+  },
+  setPleaseAgree(state) {
+    state.pleaseAgree = true
+  },
+  clsearPleaseAgree(state) {
+    state.pleaseAgree = false
+  },
   recieveMovies(state, { movies }) {
     state.movies = movies
   },
   select(state, { order, index = 0 } = {}) {
+    if (!state.isAgreed) {
+      state.pleaseAgree = true
+      return
+    }
+
     state.order = order
     state.currentIndex = 0
 

@@ -10,11 +10,12 @@
 <script>
 import Cookies from 'js-cookie'
 import BaseAlert from '@/components/BaseAlert'
+import { mapMutations } from 'vuex'
 
 const COOKIE_VISIT_KEY = 'is_visited'
 const COOKIE_VISIT_VALUE = 1
 const COOKIE_EXPIRES = 365
-const MODAL_DELAY = 1200
+const MODAL_DELAY = 1000
 
 export default {
   components: {
@@ -26,21 +27,25 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      const isVisited = Cookies.get(COOKIE_VISIT_KEY)
+    const isVisited = Cookies.get(COOKIE_VISIT_KEY)
 
-      if (!isVisited) {
+    if (isVisited) {
+      this.agree()
+    } else {
+      setTimeout(() => {
         this.isActive = true
         Cookies.set(COOKIE_VISIT_KEY, COOKIE_VISIT_VALUE, {
           expires: COOKIE_EXPIRES,
           sameSite: 'lax'
         })
-      }
-    }, MODAL_DELAY)
+      }, MODAL_DELAY)
+    }
   },
   methods: {
+    ...mapMutations(['agree']),
     hide() {
       this.isActive = false
+      this.agree()
     }
   }
 }
