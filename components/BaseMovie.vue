@@ -1,7 +1,11 @@
 <template>
   <ul class="movie">
     <li v-for="(movie, index) in movies" :key="movie.id" class="movie-item">
-      <button class="movie-button" @click="select({ order: 'desc', index })">
+      <button
+        class="movie-button"
+        :aria-label="`${movie.title}を再生する`"
+        @click="select({ order: 'desc', index })"
+      >
         <span class="movie-button-inside">
           <span class="movie-date">{{ movie.releaseDate }}</span>
           <span class="movie-title">{{ movie.title }}</span>

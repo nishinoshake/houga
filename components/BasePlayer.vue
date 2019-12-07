@@ -9,12 +9,23 @@
     </div>
     <div class="player-control">
       <h2 class="player-control-title">
-        <transition name="player-control-title-text">
-          <span
+        <transition
+          name="player-control-title-text"
+          @after-enter="afterEnterTitle"
+        >
+          <a
             class="player-control-title-text"
             v-if="currentMovie"
             :key="currentMovie.id"
-            >{{ currentMovie.title }}</span
+            :href="
+              `https://www.google.co.jp/search?q=${encodeURIComponent(
+                currentMovie.title
+              )}`
+            "
+            target="_blank"
+            rel="noopener"
+            :aria-label="`Googleで${currentMovie.title}を検索する`"
+            >{{ currentMovie.title }}</a
           >
         </transition>
       </h2>
@@ -22,14 +33,14 @@
         <div class="player-control-action">
           <button
             class="player-control-action-button player-control-action-prev"
-            aria-label="次の動画"
+            aria-label="前の動画を再生する"
             @click="prev"
           ></button>
         </div>
         <div class="player-control-action">
           <button
             class="player-control-action-button player-control-action-next"
-            aria-label="前の動画"
+            aria-label="次の動画を再生する"
             @click="next"
           ></button>
         </div>
@@ -55,7 +66,9 @@ export default {
       player: null,
       canPlay: false,
       isVisible: false,
-      intervalId: null
+      intervalId: null,
+      isTitleEntered: false,
+      previousActiveElement: null
     }
   },
   computed: {
@@ -67,9 +80,20 @@ export default {
       if (val) {
         this.play()
 
+        if (!this.isMouseOrTouch()) {
+          this.previousActiveElement = document.activeElement
+        }
+
         document.addEventListener('keydown', this.handleKeydown)
       } else {
         this.stop()
+
+        if (this.previousActiveElement) {
+          this.previousActiveElement.focus()
+          this.previousActiveElement = null
+        }
+
+        this.isTitleEntered = false
 
         document.removeEventListener('keydown', this.handleKeydown)
       }
@@ -202,6 +226,17 @@ export default {
           return this.unselect()
         }
       }
+    },
+    isMouseOrTouch() {
+      return ['mouse', 'touch'].includes(
+        document.documentElement.dataset.whatinput
+      )
+    },
+    afterEnterTitle(el) {
+      if (!this.isTitleEntered && this.previousActiveElement) {
+        this.isTitleEntered = true
+        el.focus()
+      }
     }
   }
 }
@@ -268,6 +303,7 @@ export default {
         position: absolute;
         top: 0;
         right: 0;
+        pointer-events: none;
         background: linear-gradient(
           to right,
           rgba($color-white, 0),
@@ -289,8 +325,14 @@ export default {
         will-change: transform;
         @include fit-full;
         @include font-m;
+        @include focus-visible {
+          color: $color-link;
+        }
         @include desktop {
           padding: 0 2rem 0.1rem;
+          &:hover {
+            color: $color-link;
+          }
         }
         &-enter-active {
           transition: transform 0.6s $easeOutQuart 0.5s;

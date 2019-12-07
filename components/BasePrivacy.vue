@@ -14,6 +14,7 @@
           href="https://policies.google.com/technologies/partner-sites?hl=ja"
           target="_blank"
           rel="noopener"
+          aria-label="収集した情報のGoogleによる使用"
           >収集した情報の<span class="blue">G</span><span class="red">o</span
           ><span class="yellow">o</span><span class="blue">g</span
           ><span class="green">l</span><span class="red">e</span>による使用</a
@@ -24,6 +25,7 @@
           href="https://policies.google.com/technologies/cookies?hl=ja"
           target="_blank"
           rel="noopener"
+          aria-label="GoogleによるCookieの利用方法"
           ><span class="blue">G</span><span class="red">o</span
           ><span class="yellow">o</span><span class="blue">g</span
           ><span class="green">l</span
@@ -35,6 +37,7 @@
           href="https://policies.google.com/technologies/types?hl=ja"
           target="_blank"
           rel="noopener"
+          aria-label="Googleが使用しているCookieの種類"
           ><span class="blue">G</span><span class="red">o</span
           ><span class="yellow">o</span><span class="blue">g</span
           ><span class="green">l</span
