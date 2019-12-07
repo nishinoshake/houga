@@ -13,20 +13,24 @@
           name="player-control-title-text"
           @after-enter="afterEnterTitle"
         >
-          <a
+          <span
             class="player-control-title-text"
             v-if="currentMovie"
             :key="currentMovie.id"
-            :href="
-              `https://www.google.co.jp/search?q=${encodeURIComponent(
-                currentMovie.title
-              )}`
-            "
-            target="_blank"
-            rel="noopener"
-            :aria-label="`Googleで${currentMovie.title}を検索する`"
-            >{{ currentMovie.title }}</a
           >
+            <a
+              class="player-control-title-link"
+              :href="
+                `https://www.google.co.jp/search?q=${encodeURIComponent(
+                  currentMovie.title
+                )}`
+              "
+              target="_blank"
+              rel="noopener"
+              :aria-label="`Googleで${currentMovie.title}を検索する`"
+              >{{ currentMovie.title }}</a
+            >
+          </span>
         </transition>
       </h2>
       <div class="player-control-actions">
@@ -316,7 +320,7 @@ export default {
       &-text {
         line-height: 1;
         display: flex;
-        padding: 0 1.6rem 0.1rem;
+        padding: 0 1.6rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -325,14 +329,8 @@ export default {
         will-change: transform;
         @include fit-full;
         @include font-m;
-        @include focus-visible {
-          color: $color-link;
-        }
         @include desktop {
-          padding: 0 2rem 0.1rem;
-          &:hover {
-            color: $color-link;
-          }
+          padding: 0 2rem;
         }
         &-enter-active {
           transition: transform 0.6s $easeOutQuart 0.5s;
@@ -345,6 +343,17 @@ export default {
         }
         &-leave-to {
           transform: translate3d(0, -100%, 0);
+        }
+      }
+      &-link {
+        @include focus-visible {
+          color: $color-link;
+        }
+        @include desktop {
+          padding: 0 2rem 0.1rem;
+          &:hover {
+            color: $color-link;
+          }
         }
       }
     }
