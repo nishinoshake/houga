@@ -1,7 +1,9 @@
 <template>
-  <BaseAlert :is-active="hasErrorMessage" :handle-close="clearErrorMessage">
-    <p class="alert-text" v-html="errorMessage"></p>
-  </BaseAlert>
+  <BaseAlert
+    :is-active="hasErrorMessage"
+    :handle-close="clearErrorMessage"
+    :error-message="errorMessage"
+  />
 </template>
 
 <script>

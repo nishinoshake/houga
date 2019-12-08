@@ -167,7 +167,7 @@ export default {
         this.unselect()
         this.setErrorMessage({
           message:
-            'まだ再生する準備ができていません...<br />少し時間を置いてから、<br />もう一度クリックしてください。'
+            'まだ準備ができていません...<br />少し時間を置いてから、<br />もう一度試してください。'
         })
         return
       }
