@@ -26,12 +26,7 @@
         このサイトにない、おすすめの邦画などがありましたら、<br class="pc" /><a
           href="mailto:lawson.and.7.11@gmail.com"
           >メール</a
-        >でご連絡いただくか、プログラミングに明るいかたは、<br class="pc" /><a
-          href="https://github.com/nishinoshake/houga/issues/1"
-          target="_blank"
-          rel="noopener"
-          >GitHubのイシュー</a
-        >に追加していただけたら嬉しいです。
+        >でご連絡をいただけたら嬉しいです。
       </p>
       <p class="about-text">
         また、<a
