@@ -42,9 +42,7 @@ export default {
   background-color: $color-white;
 }
 .main {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  position: relative;
   padding-bottom: 3rem;
   @include desktop {
     padding-bottom: 4rem;
