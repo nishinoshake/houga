@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ 'is-loaded': isLoaded }">
+  <header class="header">
     <h1
       class="header-logo"
       :style="{ width: logoWidth ? `${logoWidth}px` : null }"
@@ -41,7 +41,6 @@ import { mapState, mapActions } from 'vuex'
 export default {
   data() {
     return {
-      isLoaded: false,
       logoWidth: null
     }
   },
@@ -55,10 +54,6 @@ export default {
     if (isIOS) {
       this.logoWidth = window.innerHeight * 0.084558824
     }
-
-    setTimeout(() => {
-      this.isLoaded = true
-    }, 16)
   },
   methods: {
     ...mapActions(['toggle'])
@@ -68,16 +63,12 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  opacity: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: opacity 0.3s linear, transform 0.36s $easeOutQuart;
+  transition: transform 0.36s $easeOutQuart;
   @include min($width-max + 60px) {
     transform: translateX(50%);
-  }
-  &.is-loaded {
-    opacity: 1;
   }
   &-logo {
     width: 8.45vh;
@@ -112,12 +103,11 @@ export default {
 
   &-button {
     position: relative;
-    padding: 0.6rem 0.5rem 0.9rem 0.8rem;
+    padding: 0.6rem 0.8rem 0.9rem;
     z-index: 0;
-    line-height: 1.2;
+    line-height: 1;
     color: $color-white;
     font-size: 1.4rem;
-    letter-spacing: 0.15em;
     white-space: nowrap;
     background-color: $color-darker;
     @include focus-visible {
@@ -132,6 +122,9 @@ export default {
     }
     span {
       display: block;
+      + span {
+        margin-top: 0.3rem;
+      }
     }
   }
 }

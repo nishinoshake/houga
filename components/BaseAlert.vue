@@ -71,16 +71,11 @@ export default {
     }
   }
   /deep/ .alert-text {
+    font-size: 1.3rem;
     line-height: 1.9;
     letter-spacing: 0.08em;
     text-align: center;
     white-space: nowrap;
-    @include max {
-      font-size: 1.3rem;
-    }
-    @include min {
-      font-size: 1.3rem;
-    }
     span {
       padding: 0 0.3rem;
       background-color: rgba($color-yellow, 0.6);

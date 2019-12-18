@@ -94,7 +94,7 @@
           color: $color-g-green;
         }
       }
-      @include min {
+      @include desktop {
         &:hover {
           .blue {
             color: $color-g-blue;
