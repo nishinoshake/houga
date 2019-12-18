@@ -1,18 +1,10 @@
 <template>
   <ul class="movie">
     <li class="movie-item">
-      <button class="movie-button" @click.stop="toggle({ order: 'desc' })">
-        <span class="movie-button-inside">
-          <span class="movie-date">20<span>.</span>08<span>.</span>25</span>
-          <span class="movie-title">新作順で観る</span>
-        </span>
-      </button>
-    </li>
-    <li class="movie-item">
       <button class="movie-button" @click.stop="toggle({ order: 'random' })">
         <span class="movie-button-inside">
           <span class="movie-date">20<span>.</span>07<span>.</span>24</span>
-          <span class="movie-title">シャッフルで観る</span>
+          <span class="movie-title">ランダム再生</span>
         </span>
       </button>
     </li>
