@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'is-hidden': isHidden }">
     <h1
       class="header-logo"
       :style="{ width: logoWidth ? `${logoWidth}px` : null }"
@@ -13,7 +13,13 @@
 export default {
   data() {
     return {
-      logoWidth: null
+      logoWidth: null,
+      currentY: 0
+    }
+  },
+  computed: {
+    isHidden() {
+      return this.currentY >= 5
     }
   },
   mounted() {
@@ -23,21 +29,42 @@ export default {
     if (isIOS) {
       this.logoWidth = window.innerHeight * 0.084558824
     }
+
+    this.watchScroll()
+  },
+  methods: {
+    watchScroll() {
+      window.addEventListener(
+        'scroll',
+        () => {
+          window.requestAnimationFrame(() => {
+            this.currentY = window.pageYOffset
+          })
+        },
+        {
+          passive: true,
+          capture: false
+        }
+      )
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
-  transition: transform 0.36s $easeOutQuart;
+  left: 100%;
+  transform: translateX(-100%);
+  transition: left 0.3s $easeOutQuart, transform 0.3s $easeOutQuart,
+    opacity 0.2s linear;
   @include min($width-max + 60px) {
-    transform: translateX(50%);
+    left: $width-max;
+    transform: translateX(-50%);
+  }
+  &.is-hidden {
+    opacity: 0;
   }
   &-logo {
     width: 8.45vh;
