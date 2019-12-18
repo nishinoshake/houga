@@ -63,17 +63,31 @@ export default {
 <style lang="scss" scoped>
 .notice {
   &.mod-please {
-    animation: scale-attention 0.3s $easeOutExpo both;
+    animation: attention 0.6s linear both;
   }
 }
 
-@keyframes scale-attention {
-  0%,
-  100% {
-    transform: scale(1);
+@keyframes attention {
+  0% {
+    transform: none;
   }
-  5% {
-    transform: scale(1.1);
+  15% {
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+  30% {
+    transform: translate3d(4%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+  45% {
+    transform: translate3d(-3%, 0, 0) rotate3d(0, 0, 1, -2deg);
+  }
+  60% {
+    transform: translate3d(2%, 0, 0) rotate3d(0, 0, 1, 1deg);
+  }
+  75% {
+    transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+  100% {
+    transform: none;
   }
 }
 </style>
