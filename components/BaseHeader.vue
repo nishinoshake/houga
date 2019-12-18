@@ -53,12 +53,13 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 100%;
   transform: translateX(-100%);
   transition: left 0.3s $easeOutQuart, transform 0.3s $easeOutQuart,
     opacity 0.2s linear;
+  will-change: opacity;
   @include min($width-max + 60px) {
     left: $width-max;
     transform: translateX(-50%);
