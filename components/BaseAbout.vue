@@ -58,7 +58,7 @@
     margin-right: 2rem;
     flex: none;
     @include desktop {
-      width: 3.74rem;
+      width: 3.5rem;
       margin-right: 5.8rem;
     }
     img {
