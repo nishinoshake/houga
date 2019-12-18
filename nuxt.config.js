@@ -73,6 +73,10 @@ export default {
       },
       {
         rel: 'stylesheet',
+        href: '/css/yakuhanmp-noto.css'
+      },
+      {
+        rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Noto+Serif+JP:200|Roboto+Mono:300&display=swap&subset=japanese'
       }

@@ -101,10 +101,6 @@
   color: transparent;
 }
 
-@mixin font-serif {
-  font-family: 'noto-serif', serif;
-}
-
 @mixin link($color) {
   position: relative;
   z-index: 0;

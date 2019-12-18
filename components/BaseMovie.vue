@@ -4,7 +4,7 @@
       <button class="movie-button" @click.stop="toggle({ order: 'desc' })">
         <span class="movie-button-inside">
           <span class="movie-date">20<span>.</span>08<span>.</span>25</span>
-          <span class="movie-title">新作順に観る</span>
+          <span class="movie-title">新作順で観る</span>
         </span>
       </button>
     </li>
@@ -100,6 +100,7 @@ export default {
   }
   &-date {
     font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
     line-height: 1;
     white-space: nowrap;
     font-size: 1.2rem;

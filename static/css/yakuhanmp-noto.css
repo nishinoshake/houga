@@ -1,0 +1,10 @@
+/*! Yaku Han JP v3.3.1 (OFL-1.1 AND MIT) by Qrac */
+/*! Type: YakuHanMP_Noto - Based on Noto Serif CJK JP */
+@font-face {
+  font-family: "YakuHanMP_Noto";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("/fonts/YakuHanMP-ExtraLight.woff2") format("woff2"), url("/fonts/YakuHanMP-ExtraLight.woff") format("woff");
+  unicode-range: U+3001-3002, U+300a-3011, U+3014-3015, U+30fb, U+ff01, U+ff08-ff09, U+ff1a-ff1b, U+ff1f, U+ff3b, U+ff3d, U+ff5b, U+ff5d;
+}

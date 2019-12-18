@@ -38,12 +38,13 @@ body {
   color: $color-dark;
   line-height: 1.6;
   letter-spacing: 0.06em;
-  font-family: 'Noto Serif JP', serif;
+  font-family: YakuHanMP_Noto, 'Noto Serif JP', serif;
+  font-weight: 200;
   background-color: $color-snow;
 }
 
 button {
-  font-family: 'Noto Serif JP', serif;
+  font-family: inherit;
 }
 
 .pc {
