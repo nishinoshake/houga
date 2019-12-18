@@ -1,5 +1,8 @@
 <template>
-  <header class="header" :class="{ 'is-hidden': isHidden }">
+  <header
+    class="header"
+    :class="{ 'is-loaded': isLoaded, 'is-hidden': isHidden }"
+  >
     <h1
       class="header-logo"
       :style="{ width: logoWidth ? `${logoWidth}px` : null }"
@@ -13,6 +16,7 @@
 export default {
   data() {
     return {
+      isLoaded: false,
       logoWidth: null,
       currentY: 0
     }
@@ -31,6 +35,10 @@ export default {
     }
 
     this.watchScroll()
+
+    setTimeout(() => {
+      this.isLoaded = true
+    }, 16)
   },
   methods: {
     watchScroll() {
@@ -56,6 +64,7 @@ export default {
   position: absolute;
   top: 0;
   left: 100%;
+  visibility: hidden;
   transform: translateX(-100%);
   transition: left 0.3s $easeOutQuart, transform 0.3s $easeOutQuart,
     opacity 0.2s linear;
@@ -63,6 +72,9 @@ export default {
   @include min($width-max + 60px) {
     left: $width-max;
     transform: translateX(-50%);
+  }
+  &.is-loaded {
+    visibility: visible;
   }
   &.is-hidden {
     opacity: 0;
