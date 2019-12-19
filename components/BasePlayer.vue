@@ -77,7 +77,10 @@ export default {
   },
   computed: {
     ...mapState(['order', 'movies', 'currentIndex', 'previousIndex']),
-    ...mapGetters(['selectedTrailerIds', 'isPlaying', 'currentMovie'])
+    ...mapGetters(['selectedTrailerIds', 'isPlaying', 'currentMovie']),
+    isLast() {
+      return this.currentIndex === this.selectedTrailerIds.length - 1
+    }
   },
   watch: {
     isPlaying(val) {
@@ -208,7 +211,11 @@ export default {
     },
     next() {
       if (this.isPlaying && this.player && this.player.nextVideo) {
-        this.player.nextVideo()
+        if (this.isLast) {
+          this.unselect()
+        } else {
+          this.player.nextVideo()
+        }
       }
     },
     prev() {
