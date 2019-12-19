@@ -20,19 +20,21 @@ export const state = () => ({
   currentIndex: null,
   previousIndex: null,
   movies: [],
+  playlists: [],
   selectedMovies: [],
   errorMessage: ''
 })
 
 export const actions = {
-  nuxtServerInit: async function({ commit }) {
-    let param = {
+  async nuxtServerInit({ dispatch }) {
+    await Promise.all([dispatch('fetchMovies'), dispatch('fetchPlaylists')])
+  },
+  async fetchMovies({ commit }) {
+    const { items } = await client.getEntries({
       content_type: 'post',
       order: '-fields.releaseDate',
       limit: 1000
-    }
-
-    const { items } = await client.getEntries(param)
+    })
     const movies = items.map(item => ({
       id: item.sys.id,
       title: item.fields.title,
@@ -41,6 +43,19 @@ export const actions = {
     }))
 
     commit('recieveMovies', { movies })
+  },
+  async fetchPlaylists({ commit }) {
+    const { items } = await client.getEntries({
+      content_type: 'playlist',
+      limit: 1000
+    })
+    const playlists = items.map(item => ({
+      id: item.sys.id,
+      title: item.fields.title,
+      movieIds: item.fields.posts.map(post => post.sys.id)
+    }))
+
+    commit('recievePlaylists', { playlists })
   },
   toggle({ state, commit }, { order, id = null } = {}) {
     if (state.order !== order) {
@@ -68,6 +83,9 @@ export const mutations = {
   },
   recieveMovies(state, { movies }) {
     state.movies = movies
+  },
+  recievePlaylists(state, { playlists }) {
+    state.playlists = playlists
   },
   select(state, { order, index = 0 } = {}) {
     if (!state.isAgreed) {
@@ -97,6 +115,30 @@ export const mutations = {
     if (state.selectedMovies.length) {
       state.selectedMovies = []
     }
+  },
+  selectPlaylist(state, { id }) {
+    if (!state.isAgreed) {
+      state.pleaseAgree = true
+      return
+    }
+
+    const selectedPlaylist = state.playlists.find(p => p.id === id)
+
+    if (!selectedPlaylist) {
+      return
+    }
+
+    const movies = selectedPlaylist.movieIds
+      .map(movieId => state.movies.find(movie => movie.id === movieId))
+      .filter(movie => movie !== undefined)
+
+    if (!movies || !movies.length) {
+      return
+    }
+
+    state.order = 'desc'
+    state.currentIndex = 0
+    state.selectedMovies = movies
   },
   setCurrentIndex(state, { index }) {
     state.currentIndex = index

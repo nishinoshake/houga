@@ -1,13 +1,5 @@
 <template>
   <ul class="movie">
-    <li class="movie-item">
-      <button class="movie-button" @click.stop="toggle({ order: 'random' })">
-        <span class="movie-button-inside">
-          <span class="movie-date">20<span>.</span>07<span>.</span>24</span>
-          <span class="movie-title">適当に再生</span>
-        </span>
-      </button>
-    </li>
     <li v-for="(movie, index) in movies" :key="movie.id" class="movie-item">
       <button
         class="movie-button"
@@ -43,9 +35,9 @@ export default {
 <style lang="scss" scoped>
 .movie {
   flex-grow: 1;
-  padding: 2.8rem 0 0 1rem;
+  padding: 1.2rem 0 0 1rem;
   @include desktop {
-    padding: 1.8rem 2rem 0;
+    padding: 0 2rem;
   }
   &-item {
     &:nth-child(n + 2) {

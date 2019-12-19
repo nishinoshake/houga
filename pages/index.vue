@@ -4,7 +4,15 @@
     <BaseError />
     <div class="main">
       <BaseHeader />
-      <BaseMovie />
+      <section class="main-block">
+        <h2 class="main-title"><span>集合再生</span></h2>
+        <BasePlaylist />
+      </section>
+
+      <section class="main-block">
+        <h2 class="main-title"><span>単品連続</span></h2>
+        <BaseMovie />
+      </section>
     </div>
     <div class="sub">
       <BasePrivacy />
@@ -16,6 +24,7 @@
 
 <script>
 import BaseHeader from '@/components/BaseHeader'
+import BasePlaylist from '@/components/BasePlaylist'
 import BaseMovie from '@/components/BaseMovie'
 import BasePrivacy from '@/components/BasePrivacy'
 import BaseAbout from '@/components/BaseAbout'
@@ -26,6 +35,7 @@ import BaseError from '@/components/BaseError'
 export default {
   components: {
     BaseHeader,
+    BasePlaylist,
     BaseMovie,
     BasePrivacy,
     BaseAbout,
@@ -45,7 +55,30 @@ export default {
   position: relative;
   padding-bottom: 3rem;
   @include desktop {
-    padding-bottom: 4rem;
+    padding: 4rem 0;
+  }
+  &-block {
+    + .main-block {
+      margin-top: 7rem;
+    }
+  }
+  &-title {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    letter-spacing: 0.15em;
+    @include font-xl;
+    @include desktop {
+      margin-bottom: 2rem;
+      padding-left: 3rem;
+    }
+    span {
+      display: inline-block;
+      border-bottom: 1px solid currentColor;
+      @include desktop {
+        border-bottom: 2px solid currentColor;
+      }
+    }
   }
 }
 </style>
