@@ -1,8 +1,5 @@
 <template>
-  <header
-    class="header"
-    :class="{ 'is-loaded': isLoaded, 'is-hidden': isHidden }"
-  >
+  <header class="header" :class="{ 'is-loaded': isLoaded }">
     <h1
       class="header-logo"
       :style="{ width: logoWidth ? `${logoWidth}px` : null }"

@@ -52,10 +52,12 @@ export default {
   &-button {
     display: block;
     padding: 0.4rem 0.8rem;
-    background: rgba($color-white, 0.9);
     @include focus-visible {
       background-color: $color-black;
       color: $color-white;
+    }
+    @include max {
+      background: rgba($color-white, 0.9);
     }
     @include desktop {
       padding: 0.3rem 1rem 0.4rem;
