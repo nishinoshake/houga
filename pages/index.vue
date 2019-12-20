@@ -53,13 +53,15 @@ export default {
 }
 .main {
   position: relative;
-  padding-bottom: 3rem;
+  padding: 3rem 0;
   @include desktop {
     padding: 4rem 0;
   }
   &-block {
+    position: relative;
+    z-index: 1;
     + .main-block {
-      margin-top: 7rem;
+      margin-top: 3rem;
     }
   }
   &-title {

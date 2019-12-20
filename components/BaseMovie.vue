@@ -50,6 +50,7 @@ export default {
     color: $color-dark;
     line-height: 1.5;
     text-align: left;
+    background: rgba($color-white, 0.9);
     @include focus-visible {
       .movie-title {
         background-color: $color-black;
