@@ -5,12 +5,12 @@
     <div class="main">
       <BaseHeader />
       <section class="main-block">
-        <h2 class="main-title"><span>推薦集合</span></h2>
+        <h2 class="main-title"><span>推薦再生</span></h2>
         <BasePlaylist />
       </section>
 
       <section class="main-block">
-        <h2 class="main-title"><span>連続単品</span></h2>
+        <h2 class="main-title"><span>新着再生</span></h2>
         <BaseMovie />
       </section>
     </div>
@@ -53,7 +53,7 @@ export default {
 }
 .main {
   position: relative;
-  padding: 3rem 0;
+  padding: 4rem 0 3rem;
   @include desktop {
     padding: 4rem 0;
   }
@@ -61,7 +61,7 @@ export default {
     position: relative;
     z-index: 1;
     + .main-block {
-      margin-top: 3rem;
+      margin-top: 4rem;
     }
   }
   &-title {

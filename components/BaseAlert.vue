@@ -25,8 +25,8 @@ export default {
 
 <style lang="scss" scoped>
 .alert {
-  width: 90%;
-  max-width: 26rem;
+  width: 92%;
+  max-width: 27rem;
   position: fixed;
   display: flex;
   flex-direction: column;

@@ -3,7 +3,7 @@
     :is-active="isActive"
     :handle-close="handleClose"
     :handle-animation-end="clsearPleaseAgree"
-    error-message="映画のタイトルを選択すると、<br /><span>予告が再生</span>されますので、<br />音量に注意してください！"
+    error-message="ハッシュタグやタイトルを<br />選択すると<span>予告が再生</span>されます。<br />音量に注意してください！"
     class="notice"
     :class="{ 'mod-please': pleaseAgree }"
   />
@@ -43,10 +43,6 @@ export default {
     } else {
       setTimeout(() => {
         this.isActive = true
-        Cookies.set(COOKIE_VISIT_KEY, COOKIE_VISIT_VALUE, {
-          expires: COOKIE_EXPIRES,
-          sameSite: 'lax'
-        })
       }, MODAL_DELAY)
     }
   },
@@ -55,6 +51,11 @@ export default {
     async handleClose() {
       this.isActive = false
       this.agree()
+
+      Cookies.set(COOKIE_VISIT_KEY, COOKIE_VISIT_VALUE, {
+        expires: COOKIE_EXPIRES,
+        sameSite: 'lax'
+      })
     }
   }
 }

@@ -1,17 +1,17 @@
 <template>
   <ul class="playlist">
-    <li class="playlist-item">
-      <button class="playlist-button" @click.stop="toggle({ order: 'random' })">
-        ランダム
-      </button>
-    </li>
     <li v-for="playlist in playlists" :key="playlist.id" class="playlist-item">
       <button
         class="playlist-button"
         :aria-label="`${playlist.title}のプレイリストを再生する`"
         @click="selectPlaylist({ id: playlist.id })"
       >
-        {{ playlist.title }}
+        <span>#</span>{{ playlist.title }}
+      </button>
+    </li>
+    <li class="playlist-item">
+      <button class="playlist-button" @click.stop="toggle({ order: 'random' })">
+        #シャッフル
       </button>
     </li>
   </ul>
@@ -52,6 +52,7 @@ export default {
   &-button {
     display: block;
     padding: 0.4rem 0.8rem;
+    letter-spacing: 0.1em;
     @include focus-visible {
       background-color: $color-black;
       color: $color-white;
@@ -65,6 +66,11 @@ export default {
         background-color: $color-black;
         color: $color-white;
       }
+    }
+    span {
+      display: inline-block;
+      padding-right: 0.1rem;
+      font-size: 110%;
     }
   }
 }
