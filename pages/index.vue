@@ -5,7 +5,7 @@
     <div class="main">
       <BaseHeader />
       <section class="main-block">
-        <h2 class="main-title"><span>分類集合</span></h2>
+        <h2 class="main-title"><span>推薦集合</span></h2>
         <BasePlaylist />
       </section>
 
