@@ -5,12 +5,12 @@
     <div class="main">
       <BaseHeader />
       <section class="main-block">
-        <h2 class="main-title"><span>集合再生</span></h2>
+        <h2 class="main-title"><span>集合予告</span></h2>
         <BasePlaylist />
       </section>
 
       <section class="main-block">
-        <h2 class="main-title"><span>単品連続</span></h2>
+        <h2 class="main-title"><span>連続単品</span></h2>
         <BaseMovie />
       </section>
     </div>
