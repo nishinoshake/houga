@@ -8,29 +8,14 @@
       <div ref="playerYoutube" />
     </div>
     <div class="player-control">
-      <h2 class="player-control-title">
-        <transition
-          name="player-control-title-text"
-          @after-enter="afterEnterTitle"
-        >
-          <span
-            class="player-control-title-text"
+      <h2 class="player-control-title" ref="title">
+        <transition name="player-control-title" @after-enter="afterEnterTitle">
+          <BasePlayerTitle
             v-if="currentMovie"
             :key="currentMovie.id"
-          >
-            <a
-              class="player-control-title-link"
-              :href="
-                `https://www.google.co.jp/search?q=${encodeURIComponent(
-                  currentMovie.title
-                )}`
-              "
-              target="_blank"
-              rel="noopener"
-              :aria-label="`Googleで${currentMovie.title}を検索する`"
-              >{{ currentMovie.title }}</a
-            >
-          </span>
+            :title="currentMovie.title"
+            :wrap-width="titleWidth"
+          />
         </transition>
       </h2>
       <div class="player-control-actions">
@@ -63,8 +48,10 @@
 <script>
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { mapState, mapGetters, mapMutations } from 'vuex'
+import BasePlayerTitle from '@/components/BasePlayerTitle'
 
 export default {
+  components: { BasePlayerTitle },
   data() {
     return {
       player: null,
@@ -72,7 +59,8 @@ export default {
       isVisible: false,
       intervalId: null,
       isTitleEntered: false,
-      previousActiveElement: null
+      previousActiveElement: null,
+      titleWidth: 0
     }
   },
   computed: {
@@ -107,6 +95,7 @@ export default {
     }
   },
   mounted() {
+    this.watchTitleWidth()
     this.createPlayer(this.movies[0].trailerId)
   },
   methods: {
@@ -248,6 +237,13 @@ export default {
         this.isTitleEntered = true
         el.querySelector('a').focus()
       }
+    },
+    watchTitleWidth() {
+      this.titleWidth = this.$refs.title.clientWidth
+
+      window.addEventListener('resize', () => {
+        this.titleWidth = this.$refs.title.clientWidth
+      })
     }
   }
 }
@@ -324,44 +320,17 @@ export default {
           width: 2rem;
         }
       }
-      &-text {
-        line-height: 1;
-        display: flex;
-        padding: 0 1.6rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        align-items: center;
-        letter-spacing: 0.18em;
-        will-change: transform;
-        @include fit-full;
-        @include font-m;
-        @include desktop {
-          padding: 0 2rem;
-        }
-        &-enter-active {
-          transition: transform 0.6s $easeOutQuart 0.5s;
-        }
-        &-leave-active {
-          transition: transform 0.6s $easeInQuart;
-        }
-        &-enter {
-          transform: translate3d(0, 100%, 0);
-        }
-        &-leave-to {
-          transform: translate3d(0, -100%, 0);
-        }
+      &-enter-active {
+        transition: transform 0.6s $easeOutQuart 0.5s;
       }
-      &-link {
-        @include focus-visible {
-          color: $color-link;
-        }
-        @include desktop {
-          padding: 0 2rem 0.1rem;
-          &:hover {
-            color: $color-link;
-          }
-        }
+      &-leave-active {
+        transition: transform 0.6s $easeInQuart;
+      }
+      &-enter {
+        transform: translate3d(0, 100%, 0);
+      }
+      &-leave-to {
+        transform: translate3d(0, -100%, 0);
       }
     }
     &-actions {
