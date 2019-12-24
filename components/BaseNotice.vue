@@ -3,7 +3,7 @@
     :is-active="isActive"
     :handle-close="handleClose"
     :handle-animation-end="clsearPleaseAgree"
-    error-message="ハッシュタグやタイトルを<br />選択すると<span>予告が再生</span>されます。<br />音量に注意してください！"
+    error-message="映画のタイトルを選択すると<br /><span>予告が再生</span>されますので、<br />音量に注意してください！"
     class="notice"
     :class="{ 'mod-please': pleaseAgree }"
   />

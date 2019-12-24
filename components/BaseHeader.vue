@@ -31,7 +31,11 @@ export default {
 
     setTimeout(() => {
       this.isLoaded = true
+      this.watchScroll()
     }, 16)
+  },
+  methods: {
+    watchScroll() {}
   }
 }
 </script>
@@ -42,6 +46,9 @@ export default {
   top: 0;
   right: 0;
   visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &.is-loaded {
     visibility: visible;
   }

@@ -5,6 +5,7 @@
     <div class="main">
       <BaseHeader />
       <BaseMovie />
+      <BaseShuffle />
     </div>
     <div class="sub">
       <BasePrivacy />
@@ -17,6 +18,7 @@
 <script>
 import BaseHeader from '@/components/BaseHeader'
 import BaseMovie from '@/components/BaseMovie'
+import BaseShuffle from '@/components/BaseShuffle'
 import BasePrivacy from '@/components/BasePrivacy'
 import BaseAbout from '@/components/BaseAbout'
 import BasePlayer from '@/components/BasePlayer'
@@ -27,6 +29,7 @@ export default {
   components: {
     BaseHeader,
     BaseMovie,
+    BaseShuffle,
     BasePrivacy,
     BaseAbout,
     BasePlayer,
@@ -43,9 +46,9 @@ export default {
 }
 .main {
   position: relative;
-  padding: 1.8rem 0 3rem;
+  padding: 1.8rem 0 4.6rem;
   @include desktop {
-    padding: 2rem 0 4rem;
+    padding: 2rem 0 5.8rem;
   }
   &-block {
     position: relative;
