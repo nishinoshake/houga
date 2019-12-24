@@ -4,15 +4,7 @@
     <BaseError />
     <div class="main">
       <BaseHeader />
-      <section class="main-block">
-        <h2 class="main-title"><span>詰め合わせ</span></h2>
-        <BasePlaylist />
-      </section>
-
-      <section class="main-block">
-        <h2 class="main-title"><span>公開順でひたすら</span></h2>
-        <BaseMovie />
-      </section>
+      <BaseMovie />
     </div>
     <div class="sub">
       <BasePrivacy />
@@ -24,7 +16,6 @@
 
 <script>
 import BaseHeader from '@/components/BaseHeader'
-import BasePlaylist from '@/components/BasePlaylist'
 import BaseMovie from '@/components/BaseMovie'
 import BasePrivacy from '@/components/BasePrivacy'
 import BaseAbout from '@/components/BaseAbout'
@@ -35,7 +26,6 @@ import BaseError from '@/components/BaseError'
 export default {
   components: {
     BaseHeader,
-    BasePlaylist,
     BaseMovie,
     BasePrivacy,
     BaseAbout,
@@ -53,9 +43,9 @@ export default {
 }
 .main {
   position: relative;
-  padding: 4rem 0 3rem;
+  padding: 1.8rem 0 3rem;
   @include desktop {
-    padding: 4rem 0;
+    padding: 2rem 0 4rem;
   }
   &-block {
     position: relative;
