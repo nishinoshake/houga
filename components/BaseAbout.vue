@@ -29,14 +29,16 @@
         >でご連絡をいただけたら嬉しいです。
       </p>
       <p class="about-text">
-        また、<a
-          href="https://not-far-from-home.cc/"
-          target="_blank"
-          rel="noopener"
-          >映画館の近くに住みたい人のためのサイト</a
-        >もやっているので、<br
+        また、
+        <a href="https://yokoku.cc" target="_blank" rel="noopener"
+          >予告の時間</a
+        >
+        /
+        <a href="https://not-far-from-home.cc" target="_blank" rel="noopener"
+          >映画館の近くに住みたい</a
+        >というサイトも、<br
           class="pc"
-        />引越しを検討中の方や、近くに映画館が少なくて不満な方はぜひ。
+        />並行してやっているので、興味があるかたはぜひ。
       </p>
     </div>
   </section>
