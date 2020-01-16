@@ -31,7 +31,7 @@
       <p class="about-text">
         また、
         <a href="https://yokoku.cc" target="_blank" rel="noopener"
-          >予告の時間</a
+          >電影予告集会</a
         >
         /
         <a href="https://not-far-from-home.cc" target="_blank" rel="noopener"
