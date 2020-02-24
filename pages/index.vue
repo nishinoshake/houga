@@ -41,7 +41,6 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  max-width: $width-max;
   background-color: $color-white;
 }
 .main {
