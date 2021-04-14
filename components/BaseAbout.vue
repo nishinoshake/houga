@@ -29,12 +29,7 @@
         >でご連絡をいただけたら嬉しいです。
       </p>
       <p class="about-text">
-        また、
-        <a href="https://yokoku.cc" target="_blank" rel="noopener"
-          >電影予告集会</a
-        >
-        /
-        <a href="https://not-far-from-home.cc" target="_blank" rel="noopener"
+        また、<a href="https://not-far-from-home.cc" target="_blank" rel="noopener"
           >映画館の近くに住みたい</a
         >というサイトも、<br
           class="pc"
